@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %} Browsing articles {% endblock %}</h1>
+    
+{% endblock %}
+
+
+{% block content %}
+
+<form method="get" action={{ url_for('main') }}>
+    <input type="text" placeholder="Search for title" name="query">
+    <input type="Submit" value="Search">
+</form>
+<hr>
+<hr>
+    {% if items.size %}
+        {% for item in items %}
+            <div>
+                <b>ID</b> {{ item[0] }}, <b>Title</b> {{ item[1] }} 
+                <a href={{ url_for('item_details', item_id=item[0]) }}>Details</a> 
+            </div>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <div> No entries found :( </div>
+    {% endif %}
+{% endblock %}
+    

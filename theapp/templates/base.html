@@ -1,0 +1,29 @@
+<!doctype html>
+<title>{% block title %}{% endblock %}</title>
+<link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+
+<nav>
+    Article database - logged in as user {{ user }}
+    <a href={{ url_for('main') }}>Main Page</a>
+    <a href={{ url_for('recommendations') }}>Recommendations for current user </a>
+    <a href={{ url_for('userpage') }}>User page </a>
+    {# <a href="{{url_for('main')}}">Main Page</a>
+    <a href="{{url_for('userlist')}}">User List</a>
+    {% if g.user %}
+        Currently logged in as: {{g.user['id']}}
+        <a href="{{url_for('profile')}}">Profile options</a>
+    {% else %}
+        Currently not logged in.
+        <a href="{{url_for('login')}}">Choose/create user</a>
+    {% endif %} #}
+</nav>
+
+<section class="content">
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+    {% block content %}{% endblock %}
+  </section>
+
+<hr>
+Web Technology Assignment
