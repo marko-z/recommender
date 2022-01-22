@@ -1,17 +1,1 @@
-{% extends 'base.html' %}
-
-{% block header %}
-    <h1>{% block title %} User page{% endblock %}</h1>
-{% endblock %}
-
-{% block content %}
-    <form method='post' action={{ url_for('change_user') }}>
-    <label for="userchoice">Log in as user: </label>
-    <input id="userchoice" type="number" name="userchoice">
-    <input type="submit" value="Submit">
-    </form>
-    
-    <div> Or create a new user (you will switch to that user automatically) : </div> 
-    <a href={{ url_for('create_user') }}>Link</a>
-
-{% endblock %}
+yes

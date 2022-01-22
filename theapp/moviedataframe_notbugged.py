@@ -52,7 +52,12 @@ rating_data["rating"] = rating_data["rating"].apply(lambda x: float(x))
 item_data["movie_id"] = item_data["movie_id"].apply(lambda x: str(x-1))
 
 user_count = rating_data['user_id'].nunique()
-user_list = rating_data['user_id'].unique().tolist()
+movie_count = rating_data['movie_id'].nunique()
+
+print('rating_data BEFORE BEING SENT BY MOVIE DATAFRAME:')
+print(rating_data.head(10))
+print(f'user_count: {user_count}, movie_count: {movie_count}', f'item_data.shape[0]: {item_data.shape[0]}')
+print('################################################################')
 
 
 def mark_genres(item_data, genres):

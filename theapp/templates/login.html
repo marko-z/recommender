@@ -1,0 +1,17 @@
+{% block header %}<h1>{% block title %} Login {% endblock %}</h1> {% endblock %} 
+
+{% block content %} 
+<form method="POST", action={{ url_for('auth.login') }}>
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username">
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password">
+  <input type="submit" value="Submit" />
+</form>
+{% if get_flashed_messages() %}
+<div> {{ get_flashed_messages() }} </div>
+{% endif %}
+<div> Don't have a profile? Register <a href={{ url_for('auth.register') }}>here!</a> </div>
+
+
+{% endblock %}

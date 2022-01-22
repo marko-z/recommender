@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 {% block header %}
-    <h1>{% block title %} Article details - {{title}} {% endblock %}</h1>
+    <h1>{% block title %} Movie details - {{ movie_data['title'] }} {% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-
-    <form method="get" action={{ url_for('submit_rating') }}>
+    <div> Genres: {{ movie_data['combined_genres'] }}</div>
+    <form method="post" action={{ url_for('submit_rating') }}>
         <input type="radio" name="rating" value="1">1
         <input type="radio" name="rating" value="2">2
         <input type="radio" name="rating" value="3">3
         <input type="radio" name="rating" value="4">4
         <input type="radio" name="rating" value="5">5
-        <input type="hidden" name="movie" value={{ item_id }}>
+        <input type="hidden" name="movie_id" value={{ movie_data['movie_id'] }}>
         <input type="submit" value="Submit Rating">
     </form>
     ---
     rating screen
     ---
-    <div>
+    {# <div>
     Listing items similar to {{title}}
     {% for item in items %}
         <div>
@@ -25,6 +25,6 @@
             <a href={{ url_for('item_details', item_id=item[0]) }}>Details</a> 
             </div>
             <hr>
-    {% endfor %}    
-    </div>
+    {% endfor %}     
+    </div>  #}
 {% endblock %}
